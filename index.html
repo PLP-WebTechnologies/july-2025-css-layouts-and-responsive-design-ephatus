@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ephantus Mwangi Kagwi — Portfolio</title>
+  <link rel="stylesheet" href="/stlyes.css" />
+  <!-- Replace the href above with the path to your CSS if different -->
+</head>
+<body>
+  <!-- Page wrapper -->
+  <div class="site">
+
+    <!-- Header with nav (Flexbox used in nav) -->
+    <header class="site-header">
+      <div class="brand">
+        <h1>Ephantus Kagwi</h1>
+        <p class="tag">Network Engineer — Radio Access & IP NOC/SOC</p>
+      </div>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="cta" href="Ephantus_Mwangi_Kagwi_CV.pdf" download>Download CV</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main: use CSS Grid for primary layout: sidebar (profile) + content area -->
+    <main class="site-main" id="top">
+      <!-- Sidebar/profile -->
+      <aside class="profile">
+        <div class="avatar" aria-hidden="true">EK</div>
+        <h2 class="name">Ephantus Mwangi Kagwi</h2>
+        <p class="role">Radio Access Engineer · IP NOC</p>
+
+        <section class="contact-card">
+          <h3>Contact</h3>
+          <ul>
+            <li>📍 Nairobi, Kenya</li>
+            <li>📞 +254 759 233 301</li>
+            <li>✉️ <a href="mailto:ephantuskagwi2@gmail.com">ephantuskagwi2@gmail.com</a></li>
+            <li>🔗 <a href="https://linkedin.com/in/ephantus-kagwi" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </section>
+
+        <section class="download">
+          <!-- Replace the PDF filename below with your actual CV file -->
+          <a class="download-btn" href="Ephantus_Mwangi_Kagwi_CV.pdf" download>Download CV (PDF)</a>
+        </section>
+      </aside>
+
+      <!-- Content area -->
+      <section class="content">
+        <!-- About -->
+        <section id="about" class="card about">
+          <h3>About</h3>
+          <p>
+            Results-driven Network Engineer with experience across 2G/3G/4G/5G radio access and IP NOC/SOC operations.
+            Skilled in network optimization, troubleshooting, automation (Python/Bash), and cloud integrations.
+          </p>
+        </section>
+
+        <!-- Skills: demonstrate Flexbox layout for skill badges -->
+        <section id="skills" class="card skills">
+          <h3>Skills</h3>
+          <div class="skill-list">
+            <!-- Flexbox container for badges -->
+            <span class="skill">RAN Optimization</span>
+            <span class="skill">IP NOC/SOC</span>
+            <span class="skill">DWDM & Microwave</span>
+            <span class="skill">TCP/IP</span>
+            <span class="skill">Automation (Python)</span>
+            <span class="skill">NetAct / iMaster</span>
+            <span class="skill">Zabbix / Monitoring</span>
+          </div>
+        </section>
+
+        <!-- Projects: show cards using CSS Grid inside to layout cards -->
+        <section id="projects" class="card projects">
+          <h3>Selected Projects</h3>
+          <div class="projects-grid">
+            <article class="project">
+              <h4>RAN KPI Improvement</h4>
+              <p>Analyzed KPI trends and applied parameter tuning to improve CSSR and throughput.</p>
+            </article>
+            <article class="project">
+              <h4>IP SOC Automation</h4>
+              <p>Automated alarm tracking using Python and Bash, improving MTTR and reporting.</p>
+            </article>
+            <article class="project">
+              <h4>Enterprise Migration</h4>
+              <p>Supported AWS cloud services and assisted with IoT cloud migration for enterprise clients.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Contact form (simple and responsive) -->
+        <section id="contact" class="card contact">
+          <h3>Contact</h3>
+          <form class="contact-form" action="#" method="post" onsubmit="alert('Demo form — replace action with a server endpoint.'); return false;">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn">Send message</button>
+              <a class="btn ghost" href="Ephantus_Mwangi_Kagwi_CV.pdf" download>Download CV</a>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Ephantus Mwangi Kagwi — Built with Grid & Flexbox.</p>
+    </footer>
+
+  </div>
+
+  <!-- Small JS for nav toggle and year (keeps HTML/CSS focused on layout) -->
+  <script>
+    // Update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple nav toggle for small screens (no libraries)
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.getElementById('nav-list');
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      navList.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

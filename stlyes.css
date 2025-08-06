@@ -1,0 +1,217 @@
+/* style.css
+   Responsive layout using CSS Grid (main) and Flexbox (nav, skill badges, card layout).
+   Tip: adjust the breakpoints to suit your design needs.
+*/
+
+/* -------------------
+   Variables & reset
+   ------------------- */
+:root{
+  --bg: #f7f9fb;
+  --card: #ffffff;
+  --accent: #0366d6;
+  --muted: #64748b;
+  --radius: 12px;
+  --gap: 1.25rem;
+  --max-width: 1200px;
+  --page-padding: 1.25rem;
+  --shadow: 0 6px 18px rgba(15,23,42,0.06);
+  --text: #0f172a;
+  --radius-sm: 8px;
+  --nav-height: 72px;
+  font-size: 16px;
+}
+
+/* Basic reset */
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:var(--text); background:var(--bg); }
+a { color:var(--accent); text-decoration:none; }
+ul { list-style:none; padding:0; margin:0; }
+
+/* -------------------
+   Page layout
+   ------------------- */
+.site { max-width: var(--max-width); margin: 1.25rem auto; padding: 0 var(--page-padding); }
+
+/* Header: brand + nav. Flexbox for alignment. */
+.site-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  height: var(--nav-height);
+  margin-bottom: 1rem;
+}
+
+/* Brand area */
+.brand h1 { margin:0; font-size:1.25rem; letter-spacing:0.4px; }
+.brand .tag { margin:0; color:var(--muted); font-size:0.875rem; }
+
+/* Navigation — Flexbox with responsive toggle */
+.main-nav { display:flex; align-items:center; gap:0.5rem; }
+.nav-list {
+  display:flex;
+  gap:0.75rem;
+  align-items:center;
+}
+.nav-list li a { padding:0.5rem 0.6rem; display:inline-block; border-radius:6px; }
+.nav-list li a:hover { background:rgba(3,102,214,0.06); }
+
+/* CTA style */
+.cta { background: var(--accent); color: #fff; padding:0.45rem 0.8rem; border-radius:8px; box-shadow: var(--shadow); }
+.cta:hover { filter:brightness(.98); }
+
+/* small-screen nav toggle */
+.nav-toggle { display:none; font-size:1.1rem; background:none; border:none; cursor:pointer; }
+
+/* -------------------
+   Main Grid layout
+   ------------------- */
+/* Use CSS Grid: sidebar + content area */
+.site-main {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 320px 1fr; /* desktop 2-col layout */
+  align-items:start;
+}
+
+/* Sidebar */
+.profile {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 1rem;
+}
+.avatar {
+  width:84px;
+  height:84px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#e6f0ff,#dff6ff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:1.5rem;
+  color:var(--accent);
+  margin-bottom:0.75rem;
+}
+.profile .name { margin:0 0 0.25rem 0; font-size:1.05rem; }
+.profile .role { margin:0 0 1rem 0; color:var(--muted); font-size:0.9rem; }
+
+/* Contact card inside sidebar */
+.contact-card h3 { margin:0 0 0.5rem 0; font-size:0.95rem; }
+.contact-card ul li { margin:0.4rem 0; color:var(--muted); font-size:0.9rem; }
+
+/* Download button */
+.download-btn {
+  display:inline-block;
+  margin-top:0.85rem;
+  padding:0.5rem 0.85rem;
+  border-radius:8px;
+  background:transparent;
+  border:1px solid rgba(3,102,214,0.15);
+}
+
+/* Content column */
+.content { display:flex; flex-direction:column; gap: var(--gap); }
+
+/* Card utility */
+.card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* About card */
+.about p { margin:0; color:var(--muted); line-height:1.6; }
+
+/* Skills — use Flexbox for badges */
+.skill-list {
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  margin-top:0.5rem;
+}
+.skill {
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  padding:0.4rem 0.6rem;
+  font-size:0.875rem;
+  border-radius: 999px;
+  background: rgba(3,102,214,0.06);
+  color:var(--accent);
+}
+
+/* Projects grid inside projects card (Grid inside Grid) */
+.projects-grid {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:0.75rem;
+  margin-top:0.6rem;
+}
+.project { padding:0.6rem; border-radius:var(--radius-sm); background: linear-gradient(#fff,#fbfdff); border:1px solid rgba(15,23,42,0.03); }
+.project h4 { margin:0 0 0.4rem 0; font-size:0.95rem; }
+.project p { margin:0; color:var(--muted); font-size:0.9rem; }
+
+/* Contact form */
+.contact-form label { display:block; margin-bottom:0.6rem; font-size:0.9rem; color:var(--muted); }
+.contact-form input, .contact-form textarea {
+  width:100%; padding:0.6rem; border-radius:8px; border:1px solid rgba(15,23,42,0.06);
+  font-size:0.95rem; margin-top:0.25rem;
+}
+.form-actions { display:flex; gap:0.6rem; margin-top:0.6rem; flex-wrap:wrap; }
+.btn {
+  background:var(--accent); color:#fff; padding:0.6rem 0.9rem; border-radius:8px; border:none; cursor:pointer;
+}
+.btn.ghost { background:transparent; color:var(--accent); border:1px solid rgba(3,102,214,0.12); }
+
+/* Footer */
+.site-footer { text-align:center; margin-top:1.25rem; color:var(--muted); font-size:0.9rem; }
+
+/* -------------------
+   Responsive breakpoints
+   ------------------- */
+
+/* Tablet: reduce sidebar width, projects 2 columns */
+@media (max-width: 1024px) {
+  :root { --max-width: 960px; }
+  .site-main { grid-template-columns: 280px 1fr; }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Small tablet / large phone: collapse to single column.
+   Sidebar becomes top stacked, the nav becomes toggled. */
+@media (max-width: 768px) {
+  .site-main { grid-template-columns: 1fr; }
+  .profile { position: relative; top: 0; display:flex; gap:1rem; align-items:center; }
+  .profile .avatar { width:64px; height:64px; }
+  .brand h1 { font-size:1.05rem; }
+
+  /* nav adaptations */
+  .nav-list { display:none; flex-direction:column; background:var(--card); position:absolute; top:var(--nav-height); right:1rem; padding:0.6rem; border-radius:8px; box-shadow:var(--shadow); }
+  .nav-list.open { display:flex; }
+  .nav-toggle { display:inline-block; }
+
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* Mobile tiny screens */
+@media (max-width: 480px) {
+  :root { font-size: 15px; } /* slightly smaller base font */
+  .site { padding: 0 0.8rem; }
+  .brand .tag { display:none; } /* simplify header on small screens */
+  .profile { padding:0.8rem; }
+  .card { padding:0.8rem; }
+}
+
+/* Print-friendly adjustments */
+@media print {
+  body { background: #fff; color: #000; }
+  .site-main { grid-template-columns: 1fr; }
+  .nav-toggle, .nav-list, .download-btn { display:none; }
+  .card { box-shadow:none; border:1px solid #ddd; }
+}
